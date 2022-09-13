@@ -4,3 +4,4 @@ images/Libertarian.Jpg
 /images
 # how to ignore a particular directory
 *.png
+*.jpg
