@@ -1,2 +1,6 @@
+# how to ignore a particular file in a folder
 images/Libertarian.Jpg
+# how to ignore a folder 
 /images
+# how to ignore a particular directory
+*.png
