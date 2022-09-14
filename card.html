@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="card.css">
+</head>
+<body>
+    <section id="box">
+        <header>
+            <h1>ATM</h1>
+            <h3>Card Return 🏧</h3>
+        </header>
+
+        <section id="grid-container">
+            <div>
+                <p class="word" style="color: #01B4F5;">Welcome</p>
+                <h2 class="word" style="color: white;">Rioy Fresh</h2>
+                <p class="word" style="color: #01B4F5;">Account #1</p>
+                <h2 class="word" style="color: white;">001234987</h2>
+                <p class="word" style="color: #01B4F5;">Savings #2</p>
+                <h2 class="word" style="color: white;">$<span id="main">1000</span></h2>
+            </div>
+
+            <div id="btn">
+                <button class="btn-items" onclick="withdraw()">Withdraw</button>
+                <button class="btn-items" id="sub" onclick="deposit()">Deposit</button>
+                <button class="btn-items" onclick="payment()">Payments</button>
+                <button class="btn-items" onclick="airtime()">Airtime</button>
+                <button class="btn-items">Account settings</button>
+                <button class="btn-items">Other</button>
+            </div>
+        </section>
+
+        <p class="display" id="res"></p>
+
+        <input class="transactions" type="text" placeholder="$" id="inp"><br>
+        
+
+    </section>
+
+    <script>
+        function withdraw(){
+            var balance = Number(main.innerText);
+            var amount = Number(inp.value);
+            if (amount>balance){
+                res.innerText = "Insufficient fund"
+            } else if (amount<=0){
+                res.innerText = "Kindly enter an Amount"
+            } else if (amount>0){
+                main.innerText = Number(balance) - Number(amount)
+                res.innerText = "Withdrawal Successful"
+            } 
+        }
+
+        function deposit(){
+            var balance = Number(main.innerText);
+            var amount = Number(inp.value);
+            if (amount<=0){
+                res.innerText = "Kindly enter an Amount"
+            } else if (amount>0){
+                main.innerText = Number(balance)+Number(amount)
+                res.innerText = "Successful Transaction"
+            } else {
+                main.innerText = NaN
+            }
+        }
+
+        function payment(){
+            var balance = Number(main.innerText);
+            var amount = Number(inp.value);
+            if (amount>balance){
+                res.innerText = "Insufficient fund"
+            } else if (amount<=0){
+                res.innerText = "Kindly enter an Amount"
+            } else if (amount<=balance){
+                main.innerText = Number(balance) - Number(amount)
+                res.innerText = "Payment Successful"
+            } 
+        }
+
+        function airtime(){
+            var balance = Number(main.innerText);
+            var amount = Number(inp.value);
+            if (amount>balance){
+                res.innerText = "Insufficient fund"
+            } else if (amount<=0){
+                res.innerText = "Kindly enter an Amount"
+            } else if (amount>=0){
+                main.innerText = Number(balance) - Number(amount)
+                res.innerText = "Recharge Successful"
+            } 
+        }
+
+    </script>
+    
+</body>
+</html>
